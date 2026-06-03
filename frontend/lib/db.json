@@ -1,0 +1,74 @@
+[
+  {
+    "id": "mastering-css-grid",
+    "title": "Mastering CSS Grid Layouts: A Comprehensive Guide",
+    "excerpt": "Learn the ins and outs of CSS grid layouts for seamless website design.",
+    "content": "CSS Grid Layout is one of the most powerful layout systems available in CSS. It is a 2-dimensional system, meaning it can handle both columns and rows, unlike Flexbox which is largely a 1-dimensional system. By mastering Grid, you can build complex, responsive web interfaces with far less code and greater maintainability.\n\n### Why CSS Grid?\nTraditionally, positioning elements on a webpage required floats, absolute positioning, or complex flexbox nesting. Grid makes it simple to define columns, rows, and grid-areas. You can easily control the size, placement, and alignment of items without cluttering your HTML markup.\n\n```css\n.grid-container {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n  gap: 2rem;\n}\n```\n\n### Essential Grid Properties\n1. **grid-template-columns & grid-template-rows**: These properties define the structure of your grid. Using unit types like fractional units (`fr`) allows you to build highly fluid grid containers.\n2. **gap**: Defines the spacing between grid items, clean and separate from margins.\n3. **grid-column & grid-row**: Allows you to span single items across multiple tracks, which is key for creating hero layouts or magazine-style grids.\n\nWeb design has evolved, and CSS Grid is the cornerstone of modern visual architectures. By learning to combine it with Flexbox, you'll unlock absolute control over the browser canvas.",
+    "category": "Updates",
+    "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80",
+    "readTime": "5 min read",
+    "date": "June 2, 2026",
+    "author": "Alex Rivera",
+    "isFeatured": true
+  },
+  {
+    "id": "art-of-website-typography",
+    "title": "The Art of Website Typography: Best Practices and Tips",
+    "excerpt": "Discover the power of typography in web design for captivating user experiences.",
+    "content": "Typography is more than just selecting beautiful fonts. It is the core of visual communication on the web. Proper typography guides the user's eye, establishes hierarchy, and sets the overall mood of the brand. When done well, typography goes completely unnoticed because the reading experience is perfectly seamless.\n\n### The Golden Rules of Web Typography\n- **Establish Hierarchy**: Visual contrast is key. Use distinct combinations of font weight, size, letter spacing, and color to separate headings from body text.\n- **Limit Font Families**: Using too many typefaces ruins the visual balance and increases page load times. Stick to a maximum of two font families—one for headings, one for body.\n- **Mind the Line Height**: For body copy, target a line-height of 1.5 to 1.6. Anything less makes lines feel cramped, while too much height breaks the continuity of paragraphs.\n- **Define Readable Line Lengths**: Keep your line length between 50 and 75 characters. If lines are too wide, the user struggles to find the beginning of the next line. If too narrow, it disrupts reading rhythm.\n\nGood typography is invisible, yet its absence is immediately felt. By focusing on alignment, spacing, and rhythm, you elevate simple text into an engaging, professional narrative.",
+    "category": "Updates",
+    "image": "https://images.unsplash.com/photo-1561070791-26c113006238?auto=format&fit=crop&w=600&q=80",
+    "readTime": "4 min read",
+    "date": "June 1, 2026",
+    "author": "Elena Rostova",
+    "isFeatured": false
+  },
+  {
+    "id": "optimizing-performance",
+    "title": "Optimizing Website Performance for Lightning-Fast Loading Times",
+    "excerpt": "Unlock the secrets to optimize your website's performance for exceptional speed.",
+    "content": "In an era of immediate gratification, milliseconds matter. Studies show that a 100ms delay in website load times can hurt conversion rates significantly. Optimizing web performance is no longer just a technical nice-to-have; it is a critical business strategy that directly impacts user satisfaction and SEO rankings.\n\n### Actionable Performance Optimization Techniques\n\n1. **Optimize Images**: Images represent the largest asset footprint on the web. Utilize modern formats like WebP or AVIF, compress aggressively, and implement dynamic lazy loading.\n2. **Optimize the Critical Rendering Path**: Minimize blocking CSS and defer non-critical Javascript. Critical CSS should be inlined to show the user a complete paint above the fold within the Doherty Threshold (under 400ms).\n3. **Modern Bundling & Splitting**: Split code bundles dynamically. Don't force users to download chart libraries or heavy forms until they navigate to the specific components.\n\nBy executing these core strategies, you'll reduce Largest Contentful Paint (LCP) and boost your Core Web Vitals, delivering a premium, lightning-fast experience to your users.",
+    "category": "Updates",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
+    "readTime": "6 min read",
+    "date": "May 28, 2026",
+    "author": "Marcus Chen",
+    "isFeatured": false
+  },
+  {
+    "id": "role-of-color-theory",
+    "title": "The Role of Color in Web Design: Impact and Emotion",
+    "excerpt": "Explore how color influences user perception and emotion in web design.",
+    "content": "Color is a silent communicator. Long before a user reads a single headline, the color scheme of a website has already established a psychological response. By understanding color theory and human psychology, designers can deliberately steer how users perceive credibility, energy, and brand value.\n\n### The Psychology of Brand Colors\n- **Blue**: Represents security, trust, and professional calm. That's why financial platforms, tech corporations, and social networks frequently make it their primary color.\n- **Green/Lime**: Signifies growth, renewal, energy, and modern tech vibes. It stands out beautifully as a high-contrast focus accent against neutral dark schemes.\n- **Dark/Slate Neutrals**: Expresses sleekness, minimalism, and premium luxury, especially when paired with strong typography.\n\n### The 60-30-10 Design Balance Rule\nTo maintain visual harmony, use a standard layout ratio:\n- **60% Dominant Color**: Typically the background or base, keeping the canvas neat.\n- **30% Secondary Color**: Used for cards, secondary navigation, and structural components to create depth.\n- **10% Accent Color**: Reserved strictly for critical calls-to-action (CTAs), badges, and focal elements.\n\nMastering color is about creating a visual cadence. By utilizing HSL tailoring and high-contrast accents, your interface becomes both emotionally resonant and accessible.",
+    "category": "Updates",
+    "image": "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=600&q=80",
+    "readTime": "5 min read",
+    "date": "May 25, 2026",
+    "author": "Elena Rostova",
+    "isFeatured": false
+  },
+  {
+    "id": "ux-ui-design-principles",
+    "title": "UX/UI Design: Creating Intuitive and Engaging User Experiences",
+    "excerpt": "Learn the principles and techniques to craft remarkable UX/UI designs.",
+    "content": "Great design is not just what it looks like; it is how it works. UI/UX design is an empirical discipline that marries user psychology with visual engineering. By applying scientific laws of interface design, we create software that feels natural and reduces cognitive friction to near-zero.\n\n### Design Laws in Action\n\n- **Miller’s Law**: The average user can only hold 7 (plus or minus 2) items in their working memory. Avoid overwhelming interfaces by chunking information into distinct visual cards rather than dense lists.\n- **Hick’s Law**: The time it takes to make a decision increases with the number and complexity of choices. Streamline checkout paths and onboarding steps to keep cognitive load to a minimum.\n- **Doherty Threshold**: System interaction feels seamless when response loops occur in under 400ms. If a server task takes longer, immediate loading states or skeleton grids must prevent the illusion of frozen software.\n\nAlways focus on active feedback, clean visual groupings, and consistent patterns. Designing for humans means respecting their attention and mental limits.",
+    "category": "Updates",
+    "image": "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=600&q=80",
+    "readTime": "8 min read",
+    "date": "May 20, 2026",
+    "author": "Alex Rivera",
+    "isFeatured": false
+  },
+  {
+    "id": "responsive-web-design",
+    "title": "Responsive Web Design: Designing for All Devices",
+    "excerpt": "Discover the essentials of responsive web design to ensure seamless cross-device experiences.",
+    "content": "With over 55% of global internet traffic coming from mobile devices, responsive web design is mandatory. A site must deliver a fluid, high-fidelity experience whether loaded on an ultra-wide desktop monitor, a tablet, or a budget smartphone. \n\n### Foundations of Responsive Engineering\n- **Fluid Layouts**: Stop using hardcoded absolute pixel widths. Build with relative units like percentages, viewport values (`vw`/`vh`), and flexible CSS grid fractions (`fr`).\n- **Fluid Media**: Ensure images and media adapt fluidly inside their parent boundaries. Keep `max-width: 100%` and `height: auto` on standard images, or use modern layout frameworks like `next/image`.\n- **Strategic Breakpoints**: Choose breakpoints based on actual content flow and layout breaks, rather than hardcoding for specific phone models.\n\nBy prioritizing mobile responsiveness (mobile-first layout design), you ensure your app is accessible, performs outstandingly on low-bandwidth networks, and looks stunning on all screens.",
+    "category": "Updates",
+    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80",
+    "readTime": "7 min read",
+    "date": "May 15, 2026",
+    "author": "Marcus Chen",
+    "isFeatured": false
+  }
+]
