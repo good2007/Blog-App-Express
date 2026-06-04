@@ -1,12 +1,16 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import BlogCard from "../components/BlogCard";
-import { getBlogs } from "../lib/db";
+import { getBlogs } from "./actions";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
+
+
   const blogs = await getBlogs();
+  console.log("This is the data", {blogs})
+  console.log(blogs)
 
   return (
     <div className="flex flex-col min-h-screen bg-[#fafafa] dark:bg-zinc-950 font-sans transition-colors duration-250">
@@ -30,7 +34,7 @@ export default async function Home() {
         {blogs.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full">
             {blogs.map((blog) => (
-              <BlogCard key={blog.id} blog={blog} />
+              <BlogCard key={blog.slug} blog={blog} />
             ))}
           </div>
         ) : (

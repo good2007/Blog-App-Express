@@ -52,7 +52,7 @@ export default function AdminPage() {
           {/* Single Column Form */}
           <form action={formAction} className="space-y-6">
             
-            {/* Title Input */}
+            {/* Author */}
             <div className="flex flex-col gap-1.5">
               <label htmlFor="title" className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-450">
                 Article Title
@@ -75,102 +75,100 @@ export default function AdminPage() {
               )}
             </div>
 
-            {/* Row structure for Category & Read Time to keep height consistent but aligned */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {/* Category */}
-              <div className="flex flex-col gap-1.5">
-                <label htmlFor="category" className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-450">
-                  Category
-                </label>
-                <input
-                  id="category"
-                  name="category"
-                  type="text"
-                  placeholder="e.g. Updates, Tech, Design"
-                  defaultValue={values.category || "Updates"}
-                  disabled={isPending}
-                  className={`w-full px-4 py-2.5 rounded-xl border bg-transparent text-sm text-zinc-900 dark:text-white focus:outline-none transition-colors ${
-                    errors.category
-                      ? "border-red-500 focus:border-red-500"
-                      : "border-zinc-200 dark:border-zinc-800 focus:border-zinc-950 dark:focus:border-white"
-                  }`}
-                  required
-                />
-                {errors.category && (
-                  <span className="text-xs font-medium text-red-500 mt-1">{errors.category}</span>
-                )}
-              </div>
-
-              {/* Read Time */}
-              <div className="flex flex-col gap-1.5">
-                <label htmlFor="readTime" className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-450">
-                  Read Time
-                </label>
-                <input
-                  id="readTime"
-                  name="readTime"
-                  type="text"
-                  placeholder="e.g. 5 min read"
-                  defaultValue={values.readTime || ""}
-                  disabled={isPending}
-                  className={`w-full px-4 py-2.5 rounded-xl border bg-transparent text-sm text-zinc-900 dark:text-white focus:outline-none transition-colors ${
-                    errors.readTime
-                      ? "border-red-500 focus:border-red-500"
-                      : "border-zinc-200 dark:border-zinc-800 focus:border-zinc-950 dark:focus:border-white"
-                  }`}
-                  required
-                />
-                {errors.readTime && (
-                  <span className="text-xs font-medium text-red-500 mt-1">{errors.readTime}</span>
-                )}
-              </div>
-            </div>
-
-            {/* Image URL Input */}
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="image" className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-450">
-                Image URL
+              <label htmlFor="author" className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-450">
+                Author
               </label>
               <input
-                id="image"
-                name="image"
-                type="url"
-                placeholder="https://images.unsplash.com/photo-..."
-                defaultValue={values.image || ""}
+                id="author"
+                name="author"
+                type="text"
+                defaultValue={values.author || ""}
                 disabled={isPending}
                 className={`w-full px-4 py-2.5 rounded-xl border bg-transparent text-sm text-zinc-900 dark:text-white focus:outline-none transition-colors ${
-                  errors.image
-                    ? "border-red-500 focus:border-red-500"
-                    : "border-zinc-200 dark:border-zinc-800 focus:border-zinc-950 dark:focus:border-white"
-                }`}
-              />
-              {errors.image && (
-                <span className="text-xs font-medium text-red-500 mt-1">{errors.image}</span>
-              )}
-            </div>
-
-            {/* Excerpt Summary Input */}
-            <div className="flex flex-col gap-1.5">
-              <label htmlFor="excerpt" className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-450">
-                Excerpt
-              </label>
-              <textarea
-                id="excerpt"
-                name="excerpt"
-                rows="2"
-                maxLength="200"
-                placeholder="A brief 1-2 sentence description of the article..."
-                defaultValue={values.excerpt || ""}
-                disabled={isPending}
-                className={`w-full px-4 py-2.5 rounded-xl border bg-transparent text-sm text-zinc-900 dark:text-white focus:outline-none transition-colors resize-none ${
-                  errors.excerpt
+                  errors.author
                     ? "border-red-500 focus:border-red-500"
                     : "border-zinc-200 dark:border-zinc-800 focus:border-zinc-950 dark:focus:border-white"
                 }`}
                 required
               />
-              {errors.excerpt && (
-                <span className="text-xs font-medium text-red-500 mt-1">{errors.excerpt}</span>
+              {errors.author && (
+                <span className="text-xs font-medium text-red-500 mt-1">{errors.author}</span>
+              )}
+            </div>
+           
+            <div className="flex flex-col gap-1.5">
+              <label htmlFor="thumbnail" className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-450">
+                Image Link
+              </label>
+              <input
+                id="thumbnail"
+                name="thumbnail"
+                type="text"
+                placeholder="https://unsplash.com/......"
+                defaultValue={values.thumbnail || ""}
+                disabled={isPending}
+                className={`w-full px-4 py-2.5 rounded-xl border bg-transparent text-sm text-zinc-900 dark:text-white focus:outline-none transition-colors ${
+                  errors.thumbnail
+                    ? "border-red-500 focus:border-red-500"
+                    : "border-zinc-200 dark:border-zinc-800 focus:border-zinc-950 dark:focus:border-white"
+                }`}
+                required
+              />
+              {errors.thumbnail && (
+                <span className="text-xs font-medium text-red-500 mt-1">{errors.thumbnail}</span>
+              )}
+            </div>
+
+
+
+
+            {/* Read Time Input */}
+            <div className="flex flex-col gap-1.5">
+              <label htmlFor="readTime" className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-450">
+                Read Time
+              </label>
+              <input
+                id="readTime"
+                name="readTime"
+                type="text"
+                placeholder="e.g. 5 min read"
+                defaultValue={values.readTime || ""}
+                disabled={isPending}
+                className={`w-full px-4 py-2.5 rounded-xl border bg-transparent text-sm text-zinc-900 dark:text-white focus:outline-none transition-colors ${
+                  errors.readTime
+                    ? "border-red-500 focus:border-red-500"
+                    : "border-zinc-200 dark:border-zinc-800 focus:border-zinc-950 dark:focus:border-white"
+                }`}
+                required
+              />
+              {errors.readTime && (
+                <span className="text-xs font-medium text-red-500 mt-1">{errors.readTime}</span>
+              )}
+            </div>
+
+            {/* Summary Input */}
+            <div className="flex flex-col gap-1.5">
+              <label htmlFor="summary" className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-450">
+                Summary
+              </label>
+              <textarea
+                id="summary"
+                name="summary"
+                rows="2"
+                maxLength="200"
+                placeholder="A brief 1-2 sentence description of the article..."
+                defaultValue={values.summary || ""}
+                disabled={isPending}
+                className={`w-full px-4 py-2.5 rounded-xl border bg-transparent text-sm text-zinc-900 dark:text-white focus:outline-none transition-colors resize-none ${
+                  errors.summary
+                    ? "border-red-500 focus:border-red-500"
+                    : "border-zinc-200 dark:border-zinc-800 focus:border-zinc-950 dark:focus:border-white"
+                }`}
+                required
+              />
+              {errors.summary && (
+                <span className="text-xs font-medium text-red-500 mt-1">{errors.summary}</span>
               )}
             </div>
 

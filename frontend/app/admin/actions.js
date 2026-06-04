@@ -9,13 +9,14 @@ import { blogSchema } from "../../lib/schema";
  * Supports standard form state integration.
  */
 export async function handleCreateBlog(prevState, formData) {
+
   const rawData = {
     title: formData.get("title")?.toString() || "",
-    excerpt: formData.get("excerpt")?.toString() || "",
+    summary: formData.get("summary")?.toString() || "",
     content: formData.get("content")?.toString() || "",
-    category: formData.get("category")?.toString() || "",
+    thumbnail: formData.get("thumbnail")?.toString() || "",
     readTime: formData.get("readTime")?.toString() || "",
-    image: formData.get("image")?.toString() || "",
+    author: formData.get("author")?.toString() || "",
   };
 
   // 1. Zod Gateway validation
@@ -38,7 +39,23 @@ export async function handleCreateBlog(prevState, formData) {
 
   // 2. Perform write operation
   try {
-    await createBlog(result.data);
+    
+    //Call the post api endpoint
+    const response = await fetch(`${process.env.BACKEND_URL}/api/posts`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(result.data),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || 'Failed to create blog');
+    }
+
+    const data = await response.json();
+    console.log('Blog created successfully:', data);
   } catch (error) {
     console.error("Failed to create blog in server action:", error);
     return {
