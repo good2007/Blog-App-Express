@@ -68,6 +68,78 @@ try {
  }
 });
 
+/**
+ * ============================================================================
+ * ENDPOINT 3: PUT /api/posts/:id
+ * Use Case: Updates an existing blog post by ID.
+ * ============================================================================
+ */
+app.put('/api/posts/:id', async (req, res) => {
+  try {
+    console.log("Server has successfully received the update request");
+    const { id } = req.params;
+    const { title, thumbnail, summary, readTime, content, author } = req.body;
+
+    // Validate that ID is a valid MongoDB ObjectId
+    if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+      return res.status(400).json({ success: false, message: "Invalid blog ID format." });
+    }
+
+    // Generate new slug if title changed
+    const slug = title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+
+    // Find and update the post
+    const updatedPost = await Post.findByIdAndUpdate(
+      id,
+      { title, slug, thumbnail, summary, readTime, content, author },
+      { new: true, runValidators: true }
+    );
+
+    if (!updatedPost) {
+      return res.status(404).json({ success: false, message: "Blog post not found." });
+    }
+
+    res.status(200).json({ success: true, data: updatedPost });
+    console.log("Server has successfully updated the blog post");
+  } catch (error) {
+    console.log("Server-side update failure. Please try again.", { error });
+    res.status(400).json({ success: false, error: error.message });
+  }
+});
+
+/**
+ * ============================================================================
+ * ENDPOINT 4: DELETE /api/posts/:id
+ * Use Case: Deletes a blog post by ID.
+ * ============================================================================
+ */
+app.delete('/api/posts/:id', async (req, res) => {
+  try {
+    console.log("Server has successfully received the delete request");
+    const { id } = req.params;
+
+    // Validate that ID is a valid MongoDB ObjectId
+    if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+      return res.status(400).json({ success: false, message: "Invalid blog ID format." });
+    }
+
+    // Find and delete the post
+    const deletedPost = await Post.findByIdAndDelete(id);
+
+    if (!deletedPost) {
+      return res.status(404).json({ success: false, message: "Blog post not found." });
+    }
+
+    res.status(200).json({ success: true, message: "Blog post deleted successfully.", data: deletedPost });
+    console.log("Server has successfully deleted the blog post");
+  } catch (error) {
+    console.log("Server-side delete failure. Please try again.", { error });
+    res.status(400).json({ success: false, error: error.message });
+  }
+});
 
 app.listen(PORT, () => {
  console.log(`Express Backend executing operations actively on port: ${PORT}
