@@ -1,7 +1,34 @@
+'use client';
+
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
+import { handleDeleteBlog } from "@/app/admin/actions";
 
 export default function BlogCard({ blog }) {
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  const handleDelete = async () => {
+    if (!window.confirm("Are you sure you want to delete this blog post? This action cannot be undone.")) {
+      return;
+    }
+
+    setIsDeleting(true);
+    try {
+      const result = await handleDeleteBlog(blog._id);
+      if (result.success) {
+        window.location.reload();
+      } else {
+        alert("Failed to delete blog post: " + (result.error || "Unknown error"));
+      }
+    } catch (error) {
+      console.error("Error deleting blog:", error);
+      alert("Error deleting blog post");
+    } finally {
+      setIsDeleting(false);
+    }
+  };
+
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-zinc-200/70 bg-white dark:bg-zinc-900 dark:border-zinc-800/60 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 h-full">
       {/* Image Container */}
@@ -35,7 +62,27 @@ export default function BlogCard({ blog }) {
           {blog.summary}
         </p>
       </div>
+
+      {/* Action Buttons - Bottom Section */}
+      <div className="mt-auto border-t border-zinc-200/70 dark:border-zinc-800/60 bg-gradient-to-r from-zinc-50 to-zinc-100 dark:from-zinc-900/50 dark:to-zinc-800/50 p-4">
+        <div className="flex gap-3 items-center">
+          <Link
+            href={`/admin/edit/${blog._id}`}
+            className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white font-semibold text-sm py-2.5 px-4 transition-all duration-200 shadow-md hover:shadow-lg"
+          >
+            <span>✏️</span>
+            <span>Edit</span>
+          </Link>
+          <button
+            onClick={handleDelete}
+            disabled={isDeleting}
+            className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg bg-red-500 hover:bg-red-600 active:bg-red-700 disabled:bg-red-400 disabled:cursor-not-allowed text-white font-semibold text-sm py-2.5 px-4 transition-all duration-200 shadow-md hover:shadow-lg"
+          >
+            <span>🗑️</span>
+            <span>{isDeleting ? "Deleting..." : "Delete"}</span>
+          </button>
+        </div>
+      </div>
     </article>
   );
 }
-
